@@ -1,0 +1,283 @@
+html {
+	position:relative;	/* 重要！lightboxの黒背景が途中までになってしまう */
+	min-height: 100%;	/* 重要！lightboxの黒背景が途中までになってしまう */
+}
+body {
+	background: #d3cfcf;
+	color: #ffffff;
+	background-size: 25px 25px;
+	background-image: -moz-linear-gradient(left top 315deg, rgba(255, 255, 255, .5), transparent);
+					  
+	background-image: -webkit-gradient(linear, 0 0, 100% 100%,
+					  color-stop(.25, rgba(255, 255, 255, .5)),
+					  color-stop(.25, transparent),
+					  color-stop(.50, transparent),
+					  color-stop(.50, rgba(255, 255, 255, .5)),
+					  color-stop(.75, rgba(255, 255, 255, .5)),
+					  color-stop(.75, transparent),
+					  to(transparent));
+	font-family: Vrinda;
+}
+
+section {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	flex-direction: row;
+	-moz-flex-direction: row;
+	-o-flex-direction: row;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+}
+
+section article {
+	width: 100%;
+	min-height: 100%;	/* 重要！lightboxの黒背景が途中までになってしまう */
+}
+
+/* Lightboxの枠 */
+.lightbox {
+	/*padding-bottom: 65%;*/
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 0.50s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: ease-in;
+
+}
+
+/* アンカーの中にいる文字を表示する要素 */
+.lightbox div.lightbox_body {
+	-moz-box-shadow: 0 0 15px #444444;
+	box-shadow: 0 0 15px #444444;
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 5px  0 45px 5px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: 20%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	width: 60%;
+	height: 400px;
+	
+	-webkit-animation-name: grow;
+	-webkit-animation-duration: 0.50s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: normal;
+	-webkit-animation-timing-function: ease-in;
+}
+
+
+/* lightboxがフラグメントID経由でアクティブになった場合に、ここのスタイルが適用される */
+.lightbox:target {
+	display: inherit;
+}
+
+/* keyframes */
+
+@-webkit-keyframes fade {
+	from {
+		opacity: 0;
+	}
+	to  {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes grow {
+	from {height: 0px;}
+	to  {height: 400px;}
+}
+/* home----------------------------------------------------- */
+
+div#teamDefault {
+	margin: 10px;
+	width: 90%;
+	height: 150px;
+	border: 3px solid #d8d0d6;
+	background-color: #ffffff;
+}
+
+div#team {
+	display: flex;
+	display: -moz-flex;
+	display: -o-flex;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	flex-direction: row;
+	-moz-flex-direction: row;
+	-o-flex-direction: row;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	_zoom: 1;
+
+}
+
+div#teamA {
+	margin: 5px;
+	padding: 10px;
+	width:45%;
+	height: 350px;
+	border: 5px solid #ff002a;
+	border-radius: 1em;
+	background-color: #ffffff;
+}
+
+div#teamB {
+	margin: 5px;
+	padding: 10px;
+	width:45%;
+	height: 350px;
+	border: 5px solid #0094ff;
+	border-radius: 1em;
+	background-color: #ffffff;
+}
+
+div#teamA p,
+div#teamB p {
+	margin: 0;
+	padding: 0;
+	font-family: "Meiryo UI Bold";
+}
+
+div#teamA p {
+	color: #ff002a;
+}
+
+div#teamB p {
+	color: #0094ff;
+}
+
+div.person {
+	float: left;
+	text-align: center;
+	margin: 5px;
+	color: #000000;
+	font-family: Vrinda;
+}
+
+div.person img {
+	/* IE用	 */
+	width: 100px;
+	height: 100px;
+}
+
+/* メンバの追加(person_add)----------------------------------------------------- */
+div#person_menu {
+	margin: 0;
+	float: right;
+}
+div#person_menu ul {
+	list-style-type: none;
+}
+
+div#person_menu li {
+	margin: .5em 0;
+	display: box;
+	width: 10em;
+	border: 5px solid #ff002a;
+	border-radius: 1em 0 0 1em;
+	background-color: #ff002a;
+	color: #ffffff;
+	text-align: center;
+	font-family: "Meiryo UI Bold";
+	text-shadow: 0 2px 6px #333333;
+}
+
+div#person_menu li:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+div.closeButton {
+	position: absolute;
+	bottom: 1em;
+	width: 100%;
+	text-align: center;
+}
+
+/* 人の選択------------------- */
+div#person_select {
+	margin: auto 1em;
+	width: 65%;
+}
+
+div.sel_person {
+	float: left;
+	text-align: center;
+	margin: 5px;
+	color: #aaaaaa;
+	font-family: Vrinda;
+}
+
+div#person_select div.sel_intro {
+	display: none;
+}
+/* アップロード------------------- */
+div#viewFile {
+	margin: 2em 3em;
+	padding: 0;
+	border: 3px solid #dddddd;
+	width: 100px;
+	height: 100px;
+}
+
+input#personName {
+	margin-left: 10px;
+}
+
+textarea#personIntro {
+	width: 200px;
+	height: 100px;
+	margin-left: 10px;
+}
+
+
+/* 人の詳細(introduction)----------------------------------------------------- */
+
+
+div#introduction_menu {
+	margin: 0;
+	float: right;
+}
+div#introduction_menu ul {
+	list-style-type: none;
+}
+
+div#introduction_menu li {
+	margin: .5em 0;
+	display: box;
+	width: 10em;
+	border: 5px solid #107dc6;
+	border-radius: 1em 0 0 1em;
+	background-color: #107dc6;
+	color: #ffffff;
+	text-align: center;
+	font-family: "Meiryo UI Bold";
+	text-shadow: 0 2px 6px #333333;
+}
+
+div#introduction_menu li:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+div.intro_naiyou {
+	word-wrap: break-word;
+	width: 65%;
+}
+
+

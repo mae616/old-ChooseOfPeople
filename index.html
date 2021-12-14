@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>グループ分け</title>
+	<link rel="stylesheet" href="./style.css">
+	<script type="text/javascript" src="./main.js"></script>
+</head>
+
+<body onload="home2()">
+	<section>
+		<article>
+			<input type="button" onclick="msg()" value="確定">
+			<input type="button" onclick="add()" value="メンバの追加">
+			<div id="teamDefault" ondragover="dragover(event)" ondrop="drop(event)">
+			</div>
+			<div id="team">
+				<div id="teamA" ondragover="dragover(event)" ondrop="drop(event)">
+					<p id="teamAName">Ａチーム
+					<p><br>
+				</div>
+				<div id="teamB" ondragover="dragover(event)" ondrop="drop(event)">
+					<p id="teamBName">Ｂチーム
+					<p><br>
+				</div>
+			</div>
+		</article>
+
+		<!-- lightbox -->
+		<!-- めちゃくちゃdivを使用しているのどうにかしたい… -->
+		<!-- メンバの追加ボタンで現れる画面 -->
+		<article id="person_add" class="lightbox">
+			<div class="lightbox_body">
+				<div id="person_menu">
+					<ul>
+						<li id="select" onClick="chgMenu(this)">人を選択</li>
+						<li id="upload" onClick="chgMenu(this)">人をアップロード</li>
+					</ul>
+				</div>
+				<div id="person_select">
+					<form name="selectFrm">
+						<div id="sel_andou" class="person">
+							<img id="sel_img_andou" src="img/andou.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="andou">
+							<span class="sel_name">安藤さん</span>
+							<div class="sel_intro">やさしい</div>
+						</div>
+						<div id="sel_inoue" class="person">
+							<img id="sel_img_inoue" src="img/inoue.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="inoue">
+							<span class="sel_name">井上さん</span>
+							<div class="sel_intro">のんびり</div>
+						</div>
+						<div id="sel_katou" class="person">
+							<img id="sel_img_katou" src="img/katou.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="katou">
+							<span class="sel_name">加藤さん</span>
+							<div class="sel_intro">がんばる</div>
+						</div>
+						<div id="sel_kobayasi" class="person">
+							<img id="sel_img_kobayasi" src="img/kobayasi.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="kobayasi">
+							<span class="sel_name">小林さん</span>
+							<div class="sel_intro">げんき</div>
+						</div>
+						<div id="sel_saitou" class="person">
+							<img id="sel_img_saitou" src="img/saitou.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="saitou">
+							<span class="sel_name">斉藤さん</span>
+							<div class="sel_intro">れいせい</div>
+						</div>
+						<div id="sel_satou" class="person">
+							<img id="sel_img_satou" src="img/satou.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="satou">
+							<span class="sel_name">佐藤さん</span>
+							<div class="sel_intro">せがおおきい</div>
+						</div>
+						<div id="sel_suzuki" class="person">
+							<img id="sel_img_suzuki" src="img/suzuki.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="suzuki">
+							<span class="sel_name">鈴木さん</span>
+							<div class="sel_intro">おんなのこ</div>
+						</div>
+						<div id="sel_yamada" class="person">
+							<img id="sel_img_yamada" src="img/yamada.png" width="100" height="100"><br>
+							<input type="radio" name="pSel" value="yamada">
+							<span class="sel_name">山田さん</span>
+							<div class="sel_intro">ゆったり</div>
+						</div>
+					</form>
+				</div>
+				<div id="person_upload">
+					<form name="upFrm">
+						<input type="file" id="personFile" onchange="uploadFile(this)">
+						<div id="viewFile"></div>
+						名前<br>
+						<input type="text" id="personName" maxlength="9"><br>
+						詳細<br>
+						<textarea id="personIntro"></textarea>
+					</form>
+				</div>
+				<div class="closeButton">
+					<!-- textボックスEnterキーで確定しないためbutton要素で対応 -->
+					<button type="button" onClick="personAdd()">追加</button>
+					<button type="button" onClick="home()">閉じる</button>
+				</div>
+			</div>
+		</article>
+
+		<!-- 確定ボタンで現れる画面 -->
+		<article id="kakutei" class="lightbox">
+			<div class="lightbox_body">
+				<div id="kakutei_naiyou">
+				</div>
+				<div class="closeButton">
+					<button type="button" onClick="textDownload()">テキスト出力</button>
+					<button type="button" onClick="home()">閉じる</button>
+				</div>
+			</div>
+		</article>
+
+		<!-- 人の詳細(ダブルクリック)で現れる画面 -->
+		<article id="introduction" class="lightbox">
+			<div class="lightbox_body">
+				<div id="introduction_menu">
+					<ul>
+					</ul>
+				</div>
+				<div id="introduction_person">
+				</div>
+				<div class="closeButton">
+					<button type="button" onClick="home()">閉じる</button>
+				</div>
+			</div>
+		</article>
+	</section>
+
+</body>
+
+</html>
